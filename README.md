@@ -1,84 +1,173 @@
-# blogs_web3
+# 📝 blogs_web3 - A Decentralized Blog dApp on Solana
 
-This is a Next.js app containing:
+`blogs_web3` is a Solana program built using the Anchor framework that allows users to create, update, and delete blogs with metadata stored on-chain. IPFS and SHA256 hashes are used for decentralized and verifiable content storage.
 
-- Tailwind CSS setup for styling
-- Useful wallet UI elements setup using [Gill](https://gill.site/)
-- A basic Greeter Solana program written in Anchor
-- UI components for interacting with the Greeter program
+---
 
-## Getting Started
+## 🚀 Features
 
-### Installation
+- Create a blog with:
+  - Title
+  - IPFS content hash
+  - SHA256 hash for verification
 
-#### Download the template
+- Update existing blogs
+- Delete blogs
+- Deterministic blog account addresses using seeds
+- Full test coverage with `jest` and `ts-mocha`
+- Built and deployed to Solana **Devnet**
 
-```shell
-pnpm create solana-dapp@latest -t gh:solana-developers/solana-templates/templates/blogs_web3
+---
+
+## 📁 Project Structure
+
+```
+blogs_web3/
+├── anchor/
+│   ├── Anchor.toml           # Anchor config
+│   ├── programs/
+│   │   └── blogs_web3/       # Rust smart contract
+│   │       └── src/lib.rs
+│   ├── tests/
+│   │   └── blogs_web3.test.ts # Integration tests
+│   └── target/               # Build output
+└── node_modules/
+    └── package.json
 ```
 
-#### Install Dependencies
+---
 
-```shell
-pnpm install
+## ⚙️ Setup Instructions
+
+### 1. Prerequisites
+
+- Node.js >= 18.x
+- Yarn
+- Rust & Cargo
+- Solana CLI
+- Anchor CLI
+
+Install dependencies:
+
+```bash
+yarn install
+anchor build
 ```
 
-## Apps
+---
 
-### anchor
+### 2. Configuration
 
-This is a Solana program written in Rust using the Anchor framework.
+Update the `Anchor.toml`:
 
-#### Commands
+```toml
+[provider]
+cluster = "devnet"
+wallet = "~/.config/solana/phantom-keypair.json"
 
-You can use any normal anchor commands. Either move to the `anchor` directory and run the `anchor` command or prefix the command with `pnpm`, eg: `pnpm anchor`.
-
-#### Sync the program id:
-
-Running this command will create a new keypair in the `anchor/target/deploy` directory and save the address to the Anchor config file and update the `declare_id!` macro in the `./src/lib.rs` file of the program. This will also update the constant in `anchor/src/basic-exports.ts` file.
-
-```shell
-pnpm run setup
+[programs.devnet]
+blogs_web3 = "E8V4HbroMG48f6oPBX5vGAsLhim4T2NrYJkw8ySe7xD2"
 ```
 
-#### Build the program:
+To check your keypair and cluster:
 
-```shell
-pnpm anchor-build
+```bash
+solana config get
 ```
 
-#### Start the test validator with the program deployed:
+---
 
-```shell
-pnpm anchor-localnet
+### 3. Build the Program
+
+```bash
+anchor build
 ```
 
-#### Run the tests
+This compiles the Rust code and outputs the `.so` binary in `target/deploy`.
 
-```shell
-pnpm anchor-test
+---
+
+### 4. Run Tests
+
+```bash
+anchor test
 ```
 
-#### Deploy to Devnet
+This runs all integration tests in `tests/blogs_web3.test.ts`.
 
-```shell
-pnpm anchor deploy --provider.cluster devnet
+---
+
+### 5. Deploy to Devnet
+
+```bash
+anchor deploy
 ```
 
-### web
+You'll see a success message like:
 
-This is a React app that uses the Anchor generated client to interact with the Solana program.
-
-#### Commands
-
-Start the web app
-
-```shell
-pnpm dev
+```
+Program Id: E8V4HbroMG48f6oPBX5vGAsLhim4T2NrYJkw8ySe7xD2
 ```
 
-Build the web app
+---
 
-```shell
-pnpm build
+## 🧪 Test Coverage
+
+Tests included:
+
+- ✅ Create a blog
+- ✅ Fetch and verify blog content
+- ✅ Update blog title/IPFS/SHA256
+- ✅ Delete a blog
+
+To run test suite manually:
+
+```bash
+yarn test
 ```
+
+---
+
+## 🧠 Technical Highlights
+
+- Deterministic blog PDA:
+
+  ```rust
+  seeds = [blog_id.as_bytes(), owner.key().as_ref()],
+  ```
+
+- Account reallocation for blog updates:
+
+  ```rust
+  realloc = BlogState::INIT_SPACE + 8, // 8 = Anchor discriminator
+  ```
+
+---
+
+## 🔗 Built With
+
+- [Solana](https://solana.com/)
+- [Anchor](https://book.anchor-lang.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Jest](https://jestjs.io/) for tests
+
+---
+
+## 🛠 Future Work
+
+- 🌐 Frontend using Next.js + Phantom wallet
+- 📄 IPFS integration for blog content upload
+- 🔍 Search/filter blogs
+- 📟 Pagination for blog history
+
+---
+
+## 👨‍💻 Author
+
+Made with ❤️ by [`rubix`](https://github.com/Rithwik3425)
+
+---
+
+## 📜 License
+
+MIT License
