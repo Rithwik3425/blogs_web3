@@ -1,5 +1,5 @@
 {
-  "address": "JAVuBXeBZqXNtS73azhBDAoYaaAFfo4gWXoZe2e7Jf8H",
+  "address": "E8V4HbroMG48f6oPBX5vGAsLhim4T2NrYJkw8ySe7xD2",
   "metadata": {
     "name": "blogs_web3",
     "version": "0.1.0",
@@ -8,10 +8,207 @@
   },
   "instructions": [
     {
-      "name": "greet",
-      "discriminator": [203, 194, 3, 150, 228, 58, 181, 62],
-      "accounts": [],
-      "args": []
+      "name": "delete_blog",
+      "discriminator": [
+        110,
+        242,
+        46,
+        158,
+        112,
+        4,
+        189,
+        122
+      ],
+      "accounts": [
+        {
+          "name": "blog_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "arg",
+                "path": "blog_id"
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "_blog_id",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "initialize_blog",
+      "discriminator": [
+        195,
+        223,
+        187,
+        134,
+        244,
+        232,
+        54,
+        32
+      ],
+      "accounts": [
+        {
+          "name": "blog_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "arg",
+                "path": "blog_id"
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "_blog_id",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "ipfs_hash",
+          "type": "string"
+        },
+        {
+          "name": "sha256_hash",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "update_blog",
+      "discriminator": [
+        252,
+        54,
+        5,
+        181,
+        182,
+        6,
+        112,
+        203
+      ],
+      "accounts": [
+        {
+          "name": "blog_state",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "arg",
+                "path": "blog_id"
+              },
+              {
+                "kind": "account",
+                "path": "owner"
+              }
+            ]
+          }
+        },
+        {
+          "name": "owner",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "_blog_id",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "ipfs_hash",
+          "type": "string"
+        },
+        {
+          "name": "sha256_hash",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "BlogState",
+      "discriminator": [
+        244,
+        86,
+        195,
+        29,
+        196,
+        144,
+        214,
+        46
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "BlogState",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "title",
+            "type": "string"
+          },
+          {
+            "name": "ipfs_hash",
+            "type": "string"
+          },
+          {
+            "name": "sha256_hash",
+            "type": "string"
+          }
+        ]
+      }
     }
   ]
 }

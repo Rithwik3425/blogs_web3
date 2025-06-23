@@ -8,12 +8,19 @@ skip-lint = false
 [programs.localnet]
 blogs_web3 = "JAVuBXeBZqXNtS73azhBDAoYaaAFfo4gWXoZe2e7Jf8H"
 
+[programs.devnet]
+blogs_web3 = "E8V4HbroMG48f6oPBX5vGAsLhim4T2NrYJkw8ySe7xD2"
+
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "localnet"
-wallet = "~/.config/solana/id.json"
+cluster = "devnet"
+wallet = "~/.config/solana/phantom-keypair.json"
+
+# [provider]
+# cluster = "localnet"
+# wallet = "~/.config/solana/id.json"
 
 [scripts]
 test = "../node_modules/.bin/jest --preset ts-jest"
