@@ -16,7 +16,7 @@ import {
 import { type ParsedGreetInstruction } from '../instructions';
 
 export const BLOGS_PROGRAM_ADDRESS =
-  'JAVuBXeBZqXNtS73azhBDAoYaaAFfo4gWXoZe2e7Jf8H' as Address<'JAVuBXeBZqXNtS73azhBDAoYaaAFfo4gWXoZe2e7Jf8H'>;
+  '229muqFhfrLZVP8q5CrSe7x1LyHLj54wopYdpX9Mzbuw' as Address<'229muqFhfrLZVP8q5CrSe7x1LyHLj54wopYdpX9Mzbuw'>;
 
 export enum BlogsInstruction {
   Greet,
@@ -43,7 +43,7 @@ export function identifyBlogsInstruction(
 }
 
 export type ParsedBlogsInstruction<
-  TProgram extends string = 'JAVuBXeBZqXNtS73azhBDAoYaaAFfo4gWXoZe2e7Jf8H',
+  TProgram extends string = '229muqFhfrLZVP8q5CrSe7x1LyHLj54wopYdpX9Mzbuw',
 > = {
   instructionType: BlogsInstruction.Greet;
 } & ParsedGreetInstruction<TProgram>;

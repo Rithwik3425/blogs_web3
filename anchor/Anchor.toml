@@ -6,14 +6,17 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-blogs = "JAVuBXeBZqXNtS73azhBDAoYaaAFfo4gWXoZe2e7Jf8H"
+blogs = "229muqFhfrLZVP8q5CrSe7x1LyHLj54wopYdpX9Mzbuw"
+
+[programs.devnet]
+blogs = "229muqFhfrLZVP8q5CrSe7x1LyHLj54wopYdpX9Mzbuw"
 
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "localnet"
-wallet = "~/.config/solana/id.json"
+cluster = "devnet"
+wallet = "~/.config/solana/phantom-keypair.json"
 
 [scripts]
 test = "../node_modules/.bin/jest --preset ts-jest"

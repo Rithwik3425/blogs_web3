@@ -1,0 +1,7 @@
+/home/rubix/dev/learning_web_3/solana_learning/blog_web3/blogs_V3/blogs/anchor/target/sbpf-solana-solana/release/deps/libsolana_program_option-0871593b97cbd9da.rmeta: /home/rubix/.cargo/registry/src/index.crates.io-6f17d22bba15001f/solana-program-option-2.2.1/src/lib.rs
+
+/home/rubix/dev/learning_web_3/solana_learning/blog_web3/blogs_V3/blogs/anchor/target/sbpf-solana-solana/release/deps/libsolana_program_option-0871593b97cbd9da.rlib: /home/rubix/.cargo/registry/src/index.crates.io-6f17d22bba15001f/solana-program-option-2.2.1/src/lib.rs
+
+/home/rubix/dev/learning_web_3/solana_learning/blog_web3/blogs_V3/blogs/anchor/target/sbpf-solana-solana/release/deps/solana_program_option-0871593b97cbd9da.d: /home/rubix/.cargo/registry/src/index.crates.io-6f17d22bba15001f/solana-program-option-2.2.1/src/lib.rs
+
+/home/rubix/.cargo/registry/src/index.crates.io-6f17d22bba15001f/solana-program-option-2.2.1/src/lib.rs:

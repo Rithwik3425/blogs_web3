@@ -1,0 +1,1 @@
+/home/rubix/dev/learning_web_3/solana_learning/blog_web3/blogs_V3/blogs/anchor/target/sbpf-solana-solana/release/libblogs.rlib: /home/rubix/dev/learning_web_3/solana_learning/blog_web3/blogs_V3/blogs/anchor/programs/blogs/src/lib.rs

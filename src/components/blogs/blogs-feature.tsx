@@ -1,7 +1,8 @@
-import { WalletButton } from '../solana/solana-provider'
-import { BlogsCreate, BlogsProgram, BlogsProgramExplorerLink } from './blogs-ui'
-import { AppHero } from '../app-hero'
 import { useWalletUi } from '@wallet-ui/react'
+import { AppHero } from '../app-hero'
+import { WalletButton } from '../solana/solana-provider'
+import { BlogsProgram, BlogsProgramExplorerLink } from './blogs-ui'
+import CreateBlogForm from './create-blog'
 
 export default function BlogsFeature() {
   const { account } = useWalletUi()
@@ -24,7 +25,7 @@ export default function BlogsFeature() {
         <p className="mb-6">
           <BlogsProgramExplorerLink />
         </p>
-        <BlogsCreate />
+        <CreateBlogForm />
       </AppHero>
       <BlogsProgram />
     </div>

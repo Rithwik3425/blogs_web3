@@ -13,7 +13,7 @@ export function getBlogsProgramId(cluster: SolanaClusterId) {
     case 'solana:devnet':
     case 'solana:testnet':
       // This is the program ID for the Blogs program on devnet and testnet.
-      return address('6z68wfurCMYkZG51s1Et9BJEd9nJGUusjHXNt4dGbNNF')
+      return address('229muqFhfrLZVP8q5CrSe7x1LyHLj54wopYdpX9Mzbuw')
     case 'solana:mainnet':
     default:
       return BLOGS_PROGRAM_ADDRESS
